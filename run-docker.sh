@@ -1,4 +1,7 @@
 #!/bin/bash
 
-docker run -it -v ${PWD}:/notebooks -p 8888:8888 tensorflow/tensorflow:latest-py3
+IMAGE_NAME="keras-jupyter"
 
+docker build -t ${IMAGE_NAME} .
+
+docker run --rm -v ${PWD}/notebooks:/notebooks -p 8888:8888 ${IMAGE_NAME}
