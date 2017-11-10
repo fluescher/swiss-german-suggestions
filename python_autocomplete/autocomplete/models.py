@@ -63,9 +63,9 @@ def train_models(corpus, model_name="models_compressed.pkl"):
 
 def train_bigtxt():
     """unnecessary helper function for training against
-    default corpus data (big.txt)"""
+    default corpus data (de_swiss.txt)"""
 
-    bigtxtpath = os.path.join(os.path.dirname(__file__), 'big.txt')
+    bigtxtpath = os.path.join(os.path.dirname(__file__), 'de_swiss.txt')
     with open(bigtxtpath, 'rb') as bigtxtfile:
 
         train_models(str(bigtxtfile.read()))
@@ -87,7 +87,7 @@ def save_models(path=None):
 
 
 def load_models(load_path=None):
-    """Load autocomplete's built-in model (uses Norvig's big.txt). Optionally
+    """Load autocomplete's built-in model (uses Norvig's de_swiss.txt). Optionally
     provide the path to Python pickle object."""
 
     if load_path is None:
@@ -112,5 +112,5 @@ def load_models(load_path=None):
         train_bigtxt()
     except ValueError:
         print("Corrupted pickle string.\
-              Training on default corpus text (big.txt)")
+              Training on default corpus text (de_swiss.txt)")
         train_bigtxt()
